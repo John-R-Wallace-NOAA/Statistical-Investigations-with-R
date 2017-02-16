@@ -1,4 +1,7 @@
-
+' # No change in adjusted R squared with increasing N '
+' # Naturally the variability of the R2 is greater for small N. '
+" # One could bootstrap the code and find the variances of R2 for a given N and SD. '
+' '
 N.Vec <- c(50, 100, 1000, 2500, 5000, 7500, 10000, 20000, 50000, 1e5, 1e6)
 # N.Vec <- c(5, 10, 20, 50, 75, 100)
 

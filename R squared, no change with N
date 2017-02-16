@@ -1,1 +1,21 @@
-fgsdfg
+
+N.Vec <- c(50, 100, 1000, 2500, 5000, 7500, 10000, 20000, 50000, 1e5, 1e6)
+# N.Vec <- c(5, 10, 20, 50, 75, 100)
+
+SD = c(500, 1000, 2000)[3]
+
+par(mfrow=c(2,3))
+Adj.R2 <- NULL
+
+for ( N in N.Vec) {
+
+    x <- seq(0, 1000, len=N)
+    y <- 5 + 3*x + rnorm(N, sd = SD)
+    if(N < 10000)  plot(x,y, main = paste("N =", N))
+    cat("\nN =", N, "\n")
+    Adj.R2 <- rbind(Adj.R2, data.frame(N = N, adj.r2 = print(summary(lm(y~x)))$adj.r.squared))
+}
+
+Adj.R2
+
+
